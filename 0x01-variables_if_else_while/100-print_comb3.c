@@ -14,7 +14,6 @@ int main(void)
 		putchar(',');
 		putchar(' ');
 		putchar(j + '0');
-		putchar('\n');
 		if (j == 9)
 		{
 			i++;
