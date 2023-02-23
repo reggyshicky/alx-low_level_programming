@@ -4,7 +4,7 @@
  * main - printing numbers
  * Return: 0 success
  */
-int main(void)
+int main()
 {
 	int i;
 
@@ -28,5 +28,5 @@ int main(void)
 		}
 	}
 	printf("\n");
-	return (0);
+	return 0;
 }
