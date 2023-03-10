@@ -1,18 +1,17 @@
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 #include <stdlib.h>
+#include <ctype.h>
 /**
  * main - main function
- * @argc: size of array
- * @argv: array
- * Return: 0 sucess
+ * @argc: argument counter
+ * @argv: argument vector
+ *
+ * Return: Returns 0 when program is successful
  */
 int main(int argc, char *argv[])
 {
-	int change;
-
-	int cents;
+	int change, cents;
 
 	if (argc == 1)
 	{
