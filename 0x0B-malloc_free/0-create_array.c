@@ -1,6 +1,6 @@
 #include "main.h"
-#include "stdlib.h"
-#include "stdio.h"
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * create_array -pointer returned after malloc function
  * @size: size of the array
