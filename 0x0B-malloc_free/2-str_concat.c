@@ -9,33 +9,39 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int len_s1;
+	unsigned int len;
 
-	unsigned int len_s2;
+	char *str;
 
-	char *new_str;
+	int i, j; /*indexing for s1 and s2*/
 
-	if (s1 == 0)
+	if (s1 == NULL)
 	{
-		s1 = " ";
+		return (" ");
 	}
-	if (s2 == 0)
+	if (s2 == NULL)
 	{
-		s2 = " ";
+		return (" ");
 	}
-	len_s1 = strlen(s1);
+	len = (strlen(s1) + strlen(s2) + 1);
+	str = malloc(sizeof(char) * len);
 
-	len_s2 = strlen(s2);
-
-	new_str = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-
-	if (new_str == NULL)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	strcpy(new_str, s1);
-	strcat(new_str, s2);
-
-	return (new_str);
+	else
+	{
+		for (i = 0; s1[i] != '\0'; i++)
+		{
+			str[i] = s1[i];
+		}
+		for (j = 0; s2[j] != '\0'; j++)
+		{
+			str[i] = s2[j];
+			i++;
+		}
+		str[i + 1] = '\0';
+	}
+	return (str);
 }
-
