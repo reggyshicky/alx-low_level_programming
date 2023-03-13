@@ -9,22 +9,21 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int len;
-
+	int len = 0;
 	char *str;
-
-	int i, j; /*indexing for s1 and s2*/
+	int i, j;
 
 	if (s1 == NULL)
 	{
-		return (" ");
+		s1 = "";
 	}
 	if (s2 == NULL)
 	{
-		return (" ");
+		s2 = "";
 	}
+
 	len = (strlen(s1) + strlen(s2) + 1);
-	str = malloc(sizeof(char) * len);
+	str = (char *)malloc(sizeof(char) * len);
 
 	if (str == NULL)
 	{
@@ -46,3 +45,4 @@ char *str_concat(char *s1, char *s2)
 	return (str);
 	free(str);
 }
+
