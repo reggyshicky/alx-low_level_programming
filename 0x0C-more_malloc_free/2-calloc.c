@@ -8,21 +8,23 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int total_size = nmemb * size;
+	char *str;
 
-	void *ptr;
+	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
-	ptr = malloc(total_size);
-
-	if (ptr == NULL)
+	str = malloc(nmemb * size);
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	return (ptr);
-	free(ptr);
+	for (i = 0; i < (nmemb * size); i++)
+	{
+		str[i] = 0;
+	}
+	return (str);
+	free(str);
 }
-
