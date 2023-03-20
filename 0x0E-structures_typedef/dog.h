@@ -8,9 +8,9 @@
 
 /**
  * struct dog - A new type describing a dog.
- * @name: The name of the dog.
- * @age: The age of the dog.
- * @owner: The owner of the dog.
+ * @name: The dog's name.
+ * @age: The dog's age.
+ * @owner: The dog's owner.
  */
 struct dog
 {
