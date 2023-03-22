@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 			 strcmp(argv[2], "%"))
 	   )
 	{
-		printf("Error!\n");
+		printf("Error\n");
 		exit(99);
 	}
 	if ((strcmp(argv[2], "/") == 0 || strcmp(argv[2], "%") == 0)
