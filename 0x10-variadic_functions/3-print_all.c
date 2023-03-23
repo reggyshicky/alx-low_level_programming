@@ -48,5 +48,5 @@ void print_all(const char * const format, ...)
 		i = i + 1;
 	}
 	printf("\n");
-	va_end(list);
+	va_end(my_list);
 }
