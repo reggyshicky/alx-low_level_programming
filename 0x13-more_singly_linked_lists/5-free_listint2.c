@@ -7,16 +7,17 @@
 void free_listint2(listint_t **head)
 {
 	listint_t *ptr; /*pointer to traverse*/
-	listint_t *next; /*keeps track of the next nodes*/
+	listint_t *tmp; /*advances ptr to point to next node,to be freed*/
 
+	if (head == NULL)
+		return;
 	ptr = *head;
 
 	while (ptr != NULL)
 	{
-		next = ptr->next;
-		free(ptr);
-		ptr = next;
+		tmp = ptr;
+		ptr = ptr->next;
+		free(tmp);
 	}
 	*head = NULL;
 }
-
