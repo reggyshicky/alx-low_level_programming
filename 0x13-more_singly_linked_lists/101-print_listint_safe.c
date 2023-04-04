@@ -7,38 +7,39 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *r; /*traverses..pointer that moves one node at a time*/
-	const listint_t *s; /*pointer that moves two nodes at a time*/
-	/*r and s are used to detect loops, if we detect a loop we exit*/
-	size_t counter = 0;
+	size_t n = 0; /*keeps tracks of the nodes in the list*/
+	size_t i = 0;
+	const listint_t *r;
+	const listint_t *s;
 
 	r = head;
 	s = head;
 
-	while (r != NULL)
+	while (head)
 	{
-		printf("[%p] %d\n", (void *)r, r->n);
-		counter++;
-
-		r = r->next;
-
-		if (r >= s)
+		printf("[%p] %d\n", (void *)head, head->n);
+		if (head == head->next)
 		{
-			printf("-> [%p] %d\n", (void *)r, r->n);
-			exit(98);
-		}
-
-		if (r == NULL)
+			printf("-> [%p] %d\n", (void *)head, head->n);
+			n++;
 			break;
-		s = s->next;
-		r = r->next;
-
-		if (r >= s)
-		{
-			printf("-> [%p] %d\n", (void *)r, r->n);
-			exit(98);
 		}
+		head = head->next;
+		while (i < n && s)
+		{
+			if (head == s)
+			{
+				printf("->[%p] %d\n", (void *)head, head->n);
+				if (head != head->next)
+					n++;
+				return (n);
+			}
+			s = s->next;
+			i++;
+		}
+		s = r;
+		i = 0;
+		n++;
 	}
-	return (counter);
+	return (n);
 }
-
