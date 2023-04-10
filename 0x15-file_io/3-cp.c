@@ -26,9 +26,9 @@ int main(int argc, char *argv[])
 	{
 		if (fp_w < 0 || write(fp_w, BUFF, r) != r)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't wite to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			close(fp_r);
-			exit(97);
+			exit(99);
 		}
 	}
 	if (r == -1)
