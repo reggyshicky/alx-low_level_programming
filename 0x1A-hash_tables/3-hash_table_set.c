@@ -11,14 +11,24 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int w = 0; /*index*/
-	hash_node_t *newnode;
+	hash_node_t *newnode = NULL;
+	hash_node_t *temp = NULL; /*tranverses the linked List*/
 
-	if (ht == NULL || key == NULL || *key == '\0')
+	if (ht == NULL || key == NULL || (strcmp(key, "") == 0))
 	{
 		return (0); /* input that is invalid*/
 	}
 
 	w = key_index((unsigned char *)key, ht->size);
+	temp = ht->array[w];
+
+	if (temp && strcmp(key, temp->key) == 0)
+	{
+		free(temp->value);
+		temp->value = strdup(value);
+		return (1);
+	}
+
 	newnode = malloc(sizeof(hash_node_t));
 
 	if (newnode == NULL)
@@ -27,11 +37,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	newnode->key = strdup(key);
 	newnode->value = strdup(value);
 
-	if (newnode->key == NULL || newnode->value == NULL)
-	{
-		free(newnode);
-		return (0);
-	}
 	newnode->next = ht->array[w]; /**
 				       *set the next ptr of newnode to point to the
 				       *current head of the linked list at the calcluated in
